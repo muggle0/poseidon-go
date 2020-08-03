@@ -1,0 +1,58 @@
+DELETE http://localhost:9090/test2/54545454
+
+<> 2020-08-03T112225.200.txt
+
+###
+
+POST http://localhost:9090/test1?name=test
+Content-Type: application/json
+
+{"post": "xxxxxxxxxxxxxxxxxxxxxxxx"}
+
+<> 2020-08-03T111524.200.txt
+
+###
+
+GET http://localhost:9090/ping?name=test
+Content-Type: application/json
+
+<> 2020-08-03T111446.200.json
+
+###
+
+POST http://localhost:9090/test1?name=test
+Content-Type: application/json
+
+{"post": "xxxxxxxxxxxxxxxxxxxxxxxx"}
+
+<> 2020-08-03T111416.200.txt
+
+###
+
+POST http://localhost:9090/test1?name=test
+Content-Type: application/json
+
+<> 2020-08-03T110933.200.txt
+
+###
+
+GET http://localhost:9090/ping?name=test
+Content-Type: application/json
+
+<> 2020-08-03T110855.200.json
+
+###
+
+POST http://localhost:9090/test1?name=test
+Content-Type: application/json
+
+<> 2020-08-03T110828.404.txt
+
+###
+
+POST http://localhost:9090/test1?name=test
+
+<> 2020-08-03T110754.404.txt
+
+###
+
