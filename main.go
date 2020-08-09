@@ -35,7 +35,10 @@ func main() {
 		/**
 		但是在go中，你没有明确提到一个类型是否实现了一个接口。 如果一个类型实现了在接口中定义的签名方法，则称该类型实现该接口。 接口就是定义了对象的行为。
 		*/
-		user := Model.User{}
+		var user Model.User
+		/**
+		http://localhost:9090/test3?username=nih&phone=sss
+		*/
 		err := context.ShouldBindQuery(&user)
 		if err != nil {
 			log.Fatal(err.Error())
@@ -45,5 +48,4 @@ func main() {
 		context.Writer.Write([]byte(user.Phone))
 	})
 	r.Run(":9090") // listen and serve on 0.0.0.0:8080
-	// 家里电脑坏了
 }
