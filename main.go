@@ -47,5 +47,10 @@ func main() {
 		fmt.Println(user.Phone)
 		context.Writer.Write([]byte(user.Phone))
 	})
+	r.POST("/test4", func(context *gin.Context) {
+		var user Model.User
+		context.BindJSON(&user)
+		fmt.Println(user.Phone)
+	})
 	r.Run(":9090") // listen and serve on 0.0.0.0:8080
 }
