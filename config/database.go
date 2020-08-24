@@ -2,6 +2,8 @@ package config
 
 import (
 	"github.com/jinzhu/gorm"
+	"os"
+	"path"
 	"sync"
 )
 
@@ -29,6 +31,9 @@ func GetInstance() *Database {
 	if database == nil {
 		mu.Lock()
 		if database == nil {
+			dir, _ := os.Getwd()
+
+			path.Join()
 			// 初始化
 		}
 		mu.Unlock()
