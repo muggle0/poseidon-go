@@ -2,14 +2,11 @@ package config
 
 import (
 	"github.com/jinzhu/gorm"
-	"os"
-	"path"
-	"sync"
+	"syscall"
 )
 
 var database *Database
 
-var mu sync.Mutex
 
 type Database struct {
 	Datatype string `yaml:"datatype"`
@@ -26,18 +23,14 @@ func (database *Database) connection() {
 	db.SingularTable(true)
 	// 设置连接池
 }
+func initDatabase(*map[interface{}]interface{}) {
 
-func GetInstance() *Database {
-	if database == nil {
-		mu.Lock()
-		if database == nil {
-			dir, _ := os.Getwd()
+}
 
-			path.Join()
-			// 初始化
-		}
-		mu.Unlock()
-
+func getInstance() (*Database,err error) {
+	if database==nil {
+		return
 	}
-	return database
+
+	return database,nil;
 }
