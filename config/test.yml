@@ -7,14 +7,14 @@ debug:
 
 test:
   datatype: mysql
-  hostname: localhost-ttt
+  hostname: localhost
   database: test
   username: root
   password: root
 
 release:
   datatype: mysql
-  hostname: localhost-rrr
+  hostname: localhost
   database: test
   username: root
   password: root
