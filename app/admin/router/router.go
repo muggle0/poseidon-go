@@ -6,6 +6,7 @@ import (
 	log "github.com/go-admin-team/go-admin-core/logger"
 	"github.com/go-admin-team/go-admin-core/sdk"
 	"os"
+	"poseidon-go/app/admin/config"
 )
 
 var RouterList = make([]func(*gin.RouterGroup), 0)
@@ -31,4 +32,5 @@ func InitRouter() {
 		f(v1)
 	}
 	r.Run(":8080")
+	middleware.InitMiddleware(r)
 }
