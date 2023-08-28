@@ -13,7 +13,7 @@ func registerTestRouter(v1 *gin.RouterGroup) {
 	api := apis.Test{}
 	r := v1.Group("/test")
 	{
-		r.GET("", api.GetPage)
+		r.GET("/a", api.GetPage)
 
 	}
 }

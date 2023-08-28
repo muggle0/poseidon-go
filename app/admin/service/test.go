@@ -2,6 +2,7 @@ package service
 
 import (
 	"errors"
+	"github.com/go-admin-team/go-admin-core/sdk"
 	"gorm.io/gorm"
 	"poseidon-go/app/admin/model/dto"
 
@@ -14,8 +15,9 @@ type Test struct {
 
 // GetPage 获取SysApi列表
 func (e *Test) Message(req *dto.TestReq) *Test {
+	db := sdk.Runtime.GetDbByKey("*")
 	var str, model string
-	err := e.Orm.Model(&str).Scopes().
+	err := db.Model(&str).Scopes().
 		First(model, req.GetType()).Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
 		err = errors.New("查看对象不存在或无权查看")
