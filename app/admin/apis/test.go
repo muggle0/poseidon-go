@@ -15,7 +15,9 @@ type Test struct {
 // 函数名称前面的括号是Go定义这些函数将在其上运行的对象的方式
 func (e Test) GetPage(c *gin.Context) {
 	req := dto.TestReq{}
+	// 结构体初始化
 	s := service.Test{}
+	// IOC 手动挡
 	err := e.MakeContext(c).
 		MakeOrm().
 		Bind(&req, binding.Form).

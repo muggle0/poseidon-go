@@ -52,4 +52,8 @@ go install github.com/pilu/fresh@latest
 
 
 
+## 注意事项
 
+内嵌结构体
+
+*p p &p
