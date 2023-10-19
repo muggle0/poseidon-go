@@ -1,9 +1,9 @@
 package main
 
 import (
-	"poseidon-go/app/admin/router"
+	v1 "poseidon-go/app/admin/router"
 )
 
 func main() {
-	router.InitRouter()
+	v1.InitRouter()
 }

@@ -16,6 +16,7 @@ type Test struct {
 // GetPage 获取SysApi列表
 func (e *Test) Message(req *dto.TestReq) *Test {
 	db := sdk.Runtime.GetDbByKey("*")
+	var str, model string
 	err := db.Model(&str).Scopes().
 		First(model, req.GetType()).Error
 	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
