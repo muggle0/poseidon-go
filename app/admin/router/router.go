@@ -40,5 +40,5 @@ func InitRouter() {
 	for _, f := range RouterList {
 		f(v1)
 	}
-	r.Run(":8080")
+	r.Run(":8081")
 }

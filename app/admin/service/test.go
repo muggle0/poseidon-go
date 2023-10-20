@@ -1,34 +1,23 @@
 package service
 
 import (
-	"errors"
-	"github.com/go-admin-team/go-admin-core/sdk"
-	"gorm.io/gorm"
 	"poseidon-go/app/admin/model/dto"
 
 	"github.com/go-admin-team/go-admin-core/sdk/service"
 )
 
+// 此处类似autowrite 注入
 type Test struct {
 	service.Service
 }
 
-// GetPage 获取SysApi列表
 func (e *Test) Message(req *dto.TestReq) *Test {
-	db := sdk.Runtime.GetDbByKey("*")
-	var str, model string
-	err := db.Model(&str).Scopes().
-		First(model, req.GetType()).Error
-	if err != nil && errors.Is(err, gorm.ErrRecordNotFound) {
-		err = errors.New("查看对象不存在或无权查看")
-		e.Log.Errorf("Service GetSysApi error:%s", err)
-		_ = e.AddError(err)
-		return e
-	}
-	if err != nil {
-		e.Log.Errorf("db error:%s", err)
-		_ = e.AddError(err)
-		return e
+	deptList := make([]int, 0)
+	if err := e.Orm.Table("sys_role_dept").
+		Select("sys_role_dept.dept_id").
+		Joins("LEFT JOIN sys_dept on sys_dept.dept_id=sys_role_dept.dept_id").
+		Where("role_id = ? ", "").
+		Find(&deptList).Error; err != nil {
 	}
 	return e
 }
