@@ -13,10 +13,9 @@ type Test struct {
 
 func (e *Test) Message(req *dto.TestReq) *Test {
 	deptList := make([]int, 0)
-	if err := e.Orm.Table("sys_role_dept").
-		Select("sys_role_dept.dept_id").
-		Joins("LEFT JOIN sys_dept on sys_dept.dept_id=sys_role_dept.dept_id").
-		Where("role_id = ? ", "").
+	if err := e.Orm.Table("t_alert_msg").
+		Select("t_alert_msg.id").
+		Where("id = ? ", "").
 		Find(&deptList).Error; err != nil {
 	}
 	return e
